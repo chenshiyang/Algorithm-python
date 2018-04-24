@@ -16,6 +16,13 @@ def heapify(heap, rootIdx, size):
         heapify(heap, largest, size)
 
 def getTopK(array, k):
+    '''
+    给定数组，获取前k大的几个元素
+    时间复杂度：O(n) + O(klogn)
+    :param array:
+    :param k:
+    :return:
+    '''
     buildMaxHeap(array)
     print(array)
     size = len(array)
@@ -29,5 +36,5 @@ def getTopK(array, k):
 
 if __name__ == '__main__':
     array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    topk = getTopK(array, 9)
+    topk = getTopK(array, 6)
     print(topk)
