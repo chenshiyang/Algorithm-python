@@ -64,7 +64,11 @@ def lcs(root, n1, n2):
     rmq.build(depth_array, max = False)
     ancestor_depth = rmq.getMM(i1, i2)
     ancestor_index = depth_array.index(ancestor_depth, i1, i2)
-    # need fix 如果n1 是n2的ancestor
+    # # 如果n1 是n2的ancestor或者n2是n1的ancestor
+    # if ancestor_index == i1 or ancestor_index == i2:
+    #     if ancestor_depth == 0:#n1 n2中某一个是另一个的祖先并且深度为0,说明是根,祖先不存在
+    #         return None
+
     return node_array[ancestor_index]
 
 def dfs(root, node_array, depth_array, depth):
@@ -105,3 +109,4 @@ if __name__ == '__main__':
     n4.left = n8
     res = lcs(n1, n8, n5)
     print(res)
+    print(lcs(n1, n8, n2))
