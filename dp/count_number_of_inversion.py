@@ -10,8 +10,9 @@ def countNumberOfInversion(array):
     if array is None or len(array) <= 1:
         return 0
     number = [0]
-    doCount(array, 0, len(array) - 1, number) # 为了便于传值, 所以定义一个长度为1的list
+    doCount(array, 0, len(array) - 1, number)  # 为了便于传值, 所以定义一个长度为1的list
     return number[0]
+
 
 def doCount(array, start, end, number):
     if end <= start:
@@ -20,6 +21,7 @@ def doCount(array, start, end, number):
     doCount(array, start, mid, number)
     doCount(array, mid + 1, end, number)
     merge(array, start, mid, end, number)
+
 
 def merge(array, start, mid, end, number):
     temp = [0] * (end - start + 1)
@@ -42,11 +44,12 @@ def merge(array, start, mid, end, number):
                 i += 1
             else:
                 temp[k] += array[j]
-                number[0] += (mid - i + 1) # 前半部分剩余的元素 都可以和array[j]构成逆序对
+                number[0] += (mid - i + 1)  # 前半部分剩余的元素 都可以和array[j]构成逆序对
                 k += 1
                 j += 1
     for i in range(len(temp)):
         array[start + i] = temp[i]
+
 
 if __name__ == '__main__':
     array1 = [1, 2, 3, 7, 4, 6]
